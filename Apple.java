@@ -1,30 +1,20 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 /**
  * Write a description of class Apple here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Apple  
+public class Apple extends Actor
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
-     * Constructor for objects of class Apple
+     * Act - do whatever the Apple wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Apple()
+    public void act()
     {
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        // Add your action code here.
+        setLocation(getX(),getY() + 1);
     }
 }
