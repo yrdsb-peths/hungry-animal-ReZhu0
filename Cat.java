@@ -17,15 +17,17 @@ public class Cat extends Actor
         // Add your action code here.
         if(Greenfoot.isKeyDown("Right"))
         {
-            move(2);
+            move(3);
         }
         else
         {
             if(Greenfoot.isKeyDown("Left"))
             {
-                move(-2);
+                move(-3);
             }
         }
+        
+        eat();
     }
     
     public void eat()
@@ -35,6 +37,7 @@ public class Cat extends Actor
             removeTouching(Apple.class);
             MyWorld world = (MyWorld) getWorld();
             world.makeApple();
+            world.increaseScore();
         }
     }
     
