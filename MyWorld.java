@@ -19,6 +19,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false);
+        
         Cat cat = new Cat();
         addObject(cat,300,350);
         
@@ -36,11 +37,14 @@ public class MyWorld extends World
         scoreLabel.setValue(scoreIs);
     }
     
+    public int x;
+    public int y;
+    
     public void makeApple()
     {
         Apple apple = new Apple();
-        int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
+        x = Greenfoot.getRandomNumber(600);
+        y = 0;
         addObject(apple,x,y);
     }
     
