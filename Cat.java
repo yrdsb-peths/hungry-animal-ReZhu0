@@ -15,17 +15,17 @@ public class Cat extends Actor
     
     GreenfootSound elephantSound ;
     
-    GreenfootImage[] images = new GreenfootImage[4];
+    GreenfootImage[] images = new GreenfootImage[3];
     
     public Cat()
     {
         elephantSound = new GreenfootSound("elephantcub.mp3");
         for(int i = 1; i < images.length; i++)
         {
-            images[i] = new GreenfootImage("images/cat_idle/tile0" + i + "png");
+            images[i] = new GreenfootImage("images/cat_idle/tile0" + i + ".png");
         }
         
-        setImage(images[4]);
+        setImage(images[1]);
         
         //animTimer.mark();
     }
