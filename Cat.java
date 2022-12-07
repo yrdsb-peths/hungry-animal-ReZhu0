@@ -13,7 +13,30 @@ public class Cat extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    GreenfootSound elephantSound ;
+    
+    GreenfootImage[] images = new GreenfootImage[4];
+    
+    public Cat()
+    {
+        elephantSound = new GreenfootSound("elephantcub.mp3");
+        for(int i = 1; i < images.length; i++)
+        {
+            images[i] = new GreenfootImage("images/cat_idle/tile0" + i + "png");
+        }
+        
+        setImage(images[4]);
+        
+        //animTimer.mark();
+    }
+    
+    int i = 0;
+    
+    public void animate()
+    {
+        setImage(images[i]);
+        i = (i + 1) % images.length;
+    }
     
     public void act()
     {
@@ -31,6 +54,8 @@ public class Cat extends Actor
         }
         
         eat();
+        
+        animate();
     }
     
     public void eat()
