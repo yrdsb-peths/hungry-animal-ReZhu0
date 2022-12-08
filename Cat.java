@@ -13,29 +13,55 @@ public class Cat extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootSound elephantSound ;
+    GreenfootSound elephantSound;
     
-    GreenfootImage[] images = new GreenfootImage[3];
+    GreenfootImage[] imagesRight = new GreenfootImage[3];
+    GreenfootImage[] imagesLeft = new GreenfootImage[3];
+    
+    String facing = "right";
+    
+    SimpleTimer animationTimer = new SimpleTimer();
     
     public Cat()
     {
         elephantSound = new GreenfootSound("elephantcub.mp3");
-        for(int i = 1; i < images.length; i++)
+        for(int i = 1; i < imagesRight.length; i++)
         {
-            images[i] = new GreenfootImage("images/cat_idle/tile0" + i + ".png");
+            imagesRight[i] = new GreenfootImage("images/cat_idle/tile0" + i + ".png");
+            imagesRight[i].scale(75,40);
         }
         
-        setImage(images[1]);
+        for(int i = 1; i < imagesLeft.length; i++)
+        {
+            imagesLeft[i] = new GreenfootImage("images/cat_idle/tile0" + i + ".png");
+            imagesLeft[i].mirrorHorizontally();
+            imagesLeft[i].scale(75,40);
+        }
         
-        //animTimer.mark();
+        setImage(imagesRight[1]);
+        
+        animationTimer.mark();
     }
     
     int i = 0;
-    
     public void animate()
     {
-        setImage(images[i]);
-        i = (i + 1) % images.length;
+        if(animationTimer.millisElapsed() < 200)
+        {
+            return;
+        }
+        animationTimer.mark();
+        
+        if(facing.equals("right"))
+        {
+            setImage(imagesRight[i]);
+            i = (i + 1) % imagesRight.length;
+        }
+        else
+        {
+            setImage(imagesLeft[i]);
+            i = (i + 1) % imagesLeft.length;
+        }
     }
     
     public void act()
@@ -44,12 +70,14 @@ public class Cat extends Actor
         if(Greenfoot.isKeyDown("Right"))
         {
             move(3);
+            facing = "left";
         }
         else
         {
             if(Greenfoot.isKeyDown("Left"))
             {
                 move(-3);
+                facing = "right";
             }
         }
         
