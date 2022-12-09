@@ -25,13 +25,13 @@ public class Cat extends Actor
     public Cat()
     {
         elephantSound = new GreenfootSound("elephantcub.mp3");
-        for(int i = 1; i < imagesRight.length; i++)
+        for(int i = 0; i < imagesRight.length; i++)
         {
             imagesRight[i] = new GreenfootImage("images/cat_idle/tile0" + i + ".png");
             imagesRight[i].scale(75,40);
         }
         
-        for(int i = 1; i < imagesLeft.length; i++)
+        for(int i = 0; i < imagesLeft.length; i++)
         {
             imagesLeft[i] = new GreenfootImage("images/cat_idle/tile0" + i + ".png");
             imagesLeft[i].mirrorHorizontally();
@@ -70,14 +70,14 @@ public class Cat extends Actor
         if(Greenfoot.isKeyDown("Right"))
         {
             move(3);
-            facing = "left";
+            facing = "right";
         }
         else
         {
             if(Greenfoot.isKeyDown("Left"))
             {
                 move(-3);
-                facing = "right";
+                facing = "left";
             }
         }
         
