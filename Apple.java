@@ -24,4 +24,8 @@ public class Apple extends Actor
             world.removeObject(this);
         }
     }
-}
+    int speed = 1;
+    public void setSpeed(int spd)
+    {
+        speed = spd;
+    }
