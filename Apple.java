@@ -29,3 +29,4 @@ public class Apple extends Actor
     {
         speed = spd;
     }
+}
