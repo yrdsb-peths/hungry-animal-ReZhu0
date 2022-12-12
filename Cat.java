@@ -16,7 +16,9 @@ public class Cat extends Actor
     GreenfootSound elephantSound;
     
     GreenfootImage[] imagesRight = new GreenfootImage[3];
+    GreenfootImage[] imagesRight1 = new GreenfootImage[5];
     GreenfootImage[] imagesLeft = new GreenfootImage[3];
+    GreenfootImage[] imagesLeft1 = new GreenfootImage[5];
     
     String facing = "right";
     
@@ -71,6 +73,16 @@ public class Cat extends Actor
         {
             move(3);
             facing = "right";
+            //This is for the walking animation.
+            if(facing.equals("right"))
+                {
+                    for(int i = 0; i < imagesRight1.length; i++)
+                    {
+                        imagesRight1[i] = new GreenfootImage("images/cat_walk/tile0" + i + ".png");
+                        imagesRight1[i].scale(75,40);
+                        setImage(imagesRight1[i]);
+                    } 
+                }
         }
         else
         {
@@ -78,6 +90,16 @@ public class Cat extends Actor
             {
                 move(-3);
                 facing = "left";
+                if(facing.equals("left"))
+                {
+                    for(int i = 0; i < imagesLeft1.length; i++)
+                    {
+                        imagesLeft1[i] = new GreenfootImage("images/cat_walk/tile0" + i + ".png");
+                        imagesLeft1[i].mirrorHorizontally();
+                        imagesLeft1[i].scale(75,40);
+                        setImage(imagesLeft1[i]);
+                    } 
+                }
             }
         }
         
