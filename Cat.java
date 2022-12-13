@@ -67,7 +67,18 @@ public class Cat extends Actor
         }
     }
 
-    public void animateRun(){
+    public void animateRun()
+    {
+       if(facing.equals("right"))
+        {
+            setImage(imagesRight1[i]);
+            i = (i + 1) % imagesRight1.length;
+        }
+        else
+        {
+            setImage(imagesLeft1[i]);
+            i = (i + 1) % imagesLeft1.length;
+        }
     }
     public void act()
     {
@@ -87,7 +98,8 @@ public class Cat extends Actor
                     setImage(imagesRight1[i]);
                 } 
             }
-        } else if(Greenfoot.isKeyDown("Left")) {
+        } else if(Greenfoot.isKeyDown("Left")) 
+            {
             state = "run";
             move(-3);
             facing = "left";
@@ -102,9 +114,10 @@ public class Cat extends Actor
                 } 
             }
 
-        } else {
+            } else 
+            {
             state = "idle";
-        }
+            }
 
         eat();
 
