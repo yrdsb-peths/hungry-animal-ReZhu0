@@ -69,6 +69,11 @@ public class Cat extends Actor
 
     public void animateRun()
     {
+       if(animationTimer.millisElapsed() < 5)
+       {
+            return;
+       }
+        animationTimer.mark();
        if(facing.equals("right"))
         {
             setImage(imagesRight1[i]);
@@ -114,17 +119,24 @@ public class Cat extends Actor
                 } 
             }
 
-            } else 
+            } 
+            else 
             {
-            state = "idle";
+                state = "idle";
             }
 
         eat();
 
-        if(state.equals("idle")){
+        if(state.equals("idle"))
+        {
             animateIdle();
-        } else if (state.equals("run")) {
-            animateRun();
+        } 
+        else
+        {
+            if(state.equals("run")) 
+            {
+                animateRun();
+            }
         }
     }
 
