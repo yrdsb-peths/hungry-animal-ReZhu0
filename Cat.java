@@ -69,7 +69,7 @@ public class Cat extends Actor
 
     public void animateRun()
     {
-       if(animationTimer.millisElapsed() < 5)
+       if(animationTimer.millisElapsed() < 1)
        {
             return;
        }
